@@ -20,7 +20,7 @@
       <div class="flex">
         <img src="./assets/Group.png" alt="" class="h-[50px]">
         <div class="ml-3">
-          <h2 class="font-bold">$ <span>45000</span></h2>
+          <h2 class="font-bold">$ <span id="nit-amount">45000</span></h2>
           <p class="text-[#08080880]">Avilable Balance</p>
         </div>
       </div>
@@ -34,39 +34,39 @@
     </div>
 
     <div class=" grid grid-cols-3 px-4 py-6 bg-white gap-4 rounded-b-2xl ">
-      <div class="grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div id="clickaddMoney" class="cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
         <img src="./assets/wallet1.png" class="mx-auto" alt="">
         <h2>Add Money</h2>
       </div>
-      <div class="grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div id="clickCaseOut" class="cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
         <img src="./assets/send1.png" class="mx-auto" alt="">
         <h2>Cashout</h2>
       </div>
-      <div class="grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div class="cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
         <img src="./assets/money1.png" class="mx-auto" alt="">
         <h2>Transfer Money</h2>
       </div>
-      <div class="grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div class="cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
         <img src="./assets/bonus1.png" class="mx-auto" alt="">
         <h2>Get <br> Bonus</h2>
       </div>
-      <div class="grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div class="cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
         <img src="./assets/wallet1.png" class="mx-auto" alt="">
         <h2>Pay Bill</h2>
       </div>
-      <div class="grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div class="cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
         <img src="./assets/transaction1.png" class="mx-auto" alt="">
         <h2 class="">Transac tion</h2>
       </div>
     </div>
-    <section class="all-form-section px-4">
+    <section id="addMoneySection" class="hidden">
       <!-- add money -->
-      <div class="">
-        <h1 class="my-4 font-bold text-md">Add Money</h1>
+      <div class="px-4">
+        <h1 class="my-4 font-bold text-[18px]">Add Money</h1>
         <form action="" class="bg-white rounded-2xl p-4" >
           <div>
             <h1 class="font-semibold mb-3">Select A Bank</h1>
-            <select class="select select-primary input w-full rounded-full cursor-pointer">
+            <select class="select select-primary input w-full rounded-full cursor-pointer" required>
               <option disabled selected>Select Bank</option>
               <option>City Bank</option>
               <option>Islami Bank</option>
@@ -77,24 +77,48 @@
           <div class="mt-3">
             <label for="" class="font-semibold">Bank Account Number</label>
             <br>
-            <input id="" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter 11 digit account number" />
+            <input id="acountNumber" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter 11 digit account number" required/>
           </div>
           <div class="mt-3">
             <label for="" class="font-semibold">Amount to Add</label>
             <br>
-            <input id="" type="text" class="w-full input mt-3 rounded-full" placeholder="Add Amount to withdrow" />
+            <input id="amountToAdd" type="text" class="w-full input mt-3 rounded-full" placeholder="Add Amount to withdrow" required />
           </div>
           <div class="mt-3 ">
             <label for="" class="font-semibold">Pin Number</label>
             <br>
-            <input id="" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter 4 digit pin number" />
+            <input id="pinNumber" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter 4 digit pin number" required/>
           </div>
-        <button id="" class="btn btn-primary w-full rounded-3xl mt-5">Add Money</button>
+        <button id="add-money-btn" class="btn btn-primary w-full rounded-3xl mt-5">Add Money</button>
 
         </form>
       </div>
     </section>
+    <section id="cashoutSection" class="hidden">
+            <div class="px-4">
+        <h1 class="my-4 font-bold text-[18px]">Cash Out</h1>
+        <form action="" class="bg-white rounded-2xl p-4" >
+          <div class="mt-3">
+            <label for="" class="font-semibold">Agent Number</label>
+            <br>
+            <input id="CashOut-A-N" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter 11 digit number" required/>
+          </div>
+          <div class="mt-3">
+            <label for="" class="font-semibold">Amount</label>
+            <br>
+            <input id="cashAmount" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter amount to withdraw" required/>
+          </div>
+          <div class="mt-3">
+            <label for="" class="font-semibold">Pin Number</label>
+            <br>
+            <input id="cashOut-pin" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter 4 digit pin number" required/>
+          </div>
+         
+        <button id="withdrawBtn" class="btn btn-primary w-full rounded-3xl mt-5">Withdraw Money</button>
 
-
+        </form>
+      </div>
+    </section>
+<script src="main.js"></script>
   </body>
 </html>
