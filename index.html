@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#f4f5f7] h-[100vh] flex flex-col justify-center items-center ">
+    <div class="flex justify-center items-center  w-[300px] h-[130px] bg-[url(./assets/bg.png)] bg-cover">
+        <img src="./assets/Group.png" alt="">
+    </div>
+    <form class=" bg-white rounded-2xl p-5 w-[350px]">
+        <div>
+            <label for="" class="font-semibold">Mobile Number</label>
+            <br>
+            <input id="numberinp" type="text" class="input mt-3 rounded-full" placeholder="Enter your number" />
+        </div>
+        <div class="mt-1.5">
+            <label for="" class="font-semibold">4 Digit Pin</label>
+            <br>
+            <input id="pininp" type="text" class="input mt-3 rounded-full" placeholder="Enter 4 Digit pin" />
+        </div>
+        <button id="loginbtn" class="btn btn-primary w-full rounded-3xl mt-5">Login</button>
+    </form>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
