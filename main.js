@@ -1,3 +1,13 @@
+let sameBtn = document.querySelectorAll('.same-btn');
+sameBtn.forEach((btn)=>{
+    btn.addEventListener('click',()=>{
+        sameBtn.forEach((b)=>
+        b.classList.remove('bg-gray-200'))
+        btn.classList.add('bg-gray-200')   
+    })
+})
+
+
 // ADD MONEY BTN
 let addMoneyBtn = document.getElementById('add-money-btn');
 
