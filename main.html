@@ -15,7 +15,7 @@
     <!-- tailwind cdn -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body class="bg-[#f4f5f7] h-[100vh] max-w-lg mx-auto">
+  <body class="bg-[#f4f5f7]  max-w-lg mx-auto border-1 border-gray-100">
     <div class="bg-white  min-h-[50px]  flex justify-between items-center border-b-1 py-3 px-4 border-gray-300">
       <div class="flex">
         <img src="./assets/Group.png" alt="" class="h-[50px]">
@@ -34,31 +34,32 @@
     </div>
 
     <div class=" grid grid-cols-3 px-4 py-6 bg-white gap-4 rounded-b-2xl ">
-      <div id="clickaddMoney" class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div id="clickaddMoney" class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3 hover:bg-gray-200">
         <img src="./assets/wallet1.png" class="mx-auto" alt="">
         <h2>Add Money</h2>
       </div>
-      <div id="clickCaseOut" class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div id="clickCaseOut" class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3 hover:bg-gray-200">
         <img src="./assets/send1.png" class="mx-auto" alt="">
         <h2>Cashout</h2>
       </div>
-      <div class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div id="clickTransfer" class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3 hover:bg-gray-200">
         <img src="./assets/money1.png" class="mx-auto" alt="">
         <h2>Transfer Money</h2>
       </div>
-      <div class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div id="clickBonus" class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3 hover:bg-gray-200">
         <img src="./assets/bonus1.png" class="mx-auto" alt="">
         <h2>Get <br> Bonus</h2>
       </div>
-      <div class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div id="clickPayBill" class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3 hover:bg-gray-200">
         <img src="./assets/wallet1.png" class="mx-auto" alt="">
         <h2>Pay Bill</h2>
       </div>
-      <div class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3">
+      <div id="clickTransaction" class="same-btn cursor-pointer grid items-center border-2 rounded-2xl border-gray-300 text-center p-3 hover:bg-gray-200">
         <img src="./assets/transaction1.png" class="mx-auto" alt="">
         <h2 class="">Transac tion</h2>
       </div>
     </div>
+    <!-- Add Money -->
     <section id="addMoneySection" class="hidden">
       <!-- add money -->
       <div class="px-4">
@@ -94,6 +95,7 @@
         </form>
       </div>
     </section>
+    <!-- Cash Out -->
     <section id="cashoutSection" class="hidden">
             <div class="px-4">
         <h1 class="my-4 font-bold text-[18px]">Cash Out</h1>
@@ -117,6 +119,154 @@
         <button id="withdrawBtn" class="btn btn-primary w-full rounded-3xl mt-5">Withdraw Money</button>
 
         </form>
+      </div>
+    </section>
+    <!-- Transfer Money -->
+    <section id="transferSection" class="hidden">
+      <div class="px-4">
+        <h1 class="my-4 font-bold text-[18px]">Transfer Money</h1>
+        <form action="" class="bg-white rounded-2xl p-4" >
+          <div class="mt-3">
+            <label for="" class="font-semibold">User Account Number</label>
+            <br>
+            <input id="transferNumber" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter 11 digit number" required/>
+          </div>
+          <div class="mt-3">
+            <label for="" class="font-semibold">Amount</label>
+            <br>
+            <input id="transferAmount" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter amount to transfer" required/>
+          </div>
+          <div class="mt-3">
+            <label for="" class="font-semibold">Pin Number</label>
+            <br>
+            <input id="transferPin" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter 4 digit pin number" required/>
+          </div>
+         
+        <button id="sendNow" class="btn btn-primary w-full rounded-3xl mt-5">Send Now</button>
+
+        </form>
+      </div>
+    </section>
+    <!-- Get Bonus  -->
+    <section id="BonusSection" class="hidden">
+      <div class="px-4">
+        <h1 class="my-4 font-bold text-[18px]">Get Bonus</h1>
+        <form action="" class="bg-white rounded-2xl p-4" >
+          <div class="mt-3">
+            <label for="" class="font-semibold">Enter Bonus Coupon</label>
+            <br>
+            <input id="bonusCoupon" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter your coupon" required/>
+          </div>
+        <button id="getBonus" class="btn btn-primary w-full rounded-3xl mt-5">Get Bonus</button>
+
+        </form>
+      </div>
+    </section>
+    <!-- Pay Bill -->
+    <section id="payBillSection" class="hidden">
+      <div class="px-4">
+        <h1 class="my-4 font-bold text-[18px]">Pay Bill</h1>
+        <form action="" class="bg-white rounded-2xl p-4" >
+          <div>
+            <h1 class="font-semibold mb-3">Select To Pay</h1>
+            <select class="select select-primary input w-full rounded-full cursor-pointer" required>
+              <option disabled selected>Select Institute</option>
+              <option>Gas Bill</option>
+              <option>Electricity Bill</option>
+              <option>Water Bill</option>
+              <option>Internet Bill</option>
+              <option>Insorence</option>
+              <option>Telephone Bill</option>
+              <option>Others</option>
+            </select>
+          </div>
+          <div class="mt-3">
+            <label for="" class="font-semibold">Bank Account Number</label>
+            <br>
+            <input id="payBillNumber" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter 11 digit account number" required/>
+          </div>
+          <div class="mt-3">
+            <label for="" class="font-semibold">Amount to Add</label>
+            <br>
+            <input id="payBillAmount" type="text" class="w-full input mt-3 rounded-full" placeholder="Add Amount to pay" required />
+          </div>
+          <div class="mt-3 ">
+            <label for="" class="font-semibold">Pin Number</label>
+            <br>
+            <input id="payBillpinNumber" type="text" class="w-full input mt-3 rounded-full" placeholder="Enter 4 digit pin number" required/>
+          </div>
+        <button id="pay-Bill-btn" class="btn btn-primary w-full rounded-3xl mt-5">Pay Now</button>
+
+        </form>
+      </div>
+    </section>
+    <!-- Transaction History -->
+    <section id="transactionSection" class="">
+      <div class="px-4">
+      <div class="flex justify-between items-center">
+          <h1 class="my-4 font-bold text-[18px]">Transaction History</h1>
+          <p class="cursor-pointer underline">View All</p>
+      </div>    
+      <div>
+        <div class="navbar bg-base-100 shadow-sm rounded-xl mb-3">
+          <div class="flex-1">
+            <div class="flex gap-4 items-center">
+              <div class="bg-gray-200 p-2 rounded-full">
+                  <img class="" src="./assets/wallet1.png" alt="">
+              </div>
+              <div>
+                <h1 class="font-semibold text-lg">Electricity Bill</h1>
+                <p>Today 01:44 AM</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex-none">
+            <button class="btn btn-square btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
+            </button>
+          </div>
+        </div>
+      </div>    
+      <div>
+        <div class="navbar bg-base-100 shadow-sm rounded-xl mb-3">
+          <div class="flex-1">
+            <div class="flex gap-4 items-center">
+              <div class="bg-gray-200 p-2 rounded-full">
+                  <img class="" src="./assets/wallet1.png" alt="">
+              </div>
+              <div>
+                <h1 class="font-semibold text-lg">Bank Reposit</h1>
+                <p>Today 07:23 AM</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex-none">
+            <button class="btn btn-square btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
+            </button>
+          </div>
+        </div>
+      </div>    
+      <div>
+        <div class="navbar bg-base-100 shadow-sm rounded-xl mb-3">
+          <div class="flex-1">
+            <div class="flex gap-4 items-center">
+              <div class="bg-gray-200 p-2 rounded-full">
+                  <img class="" src="./assets/wallet1.png" alt="">
+              </div>
+              <div>
+                <h1 class="font-semibold text-lg">Gas Bill</h1>
+                <p>Today 11:51 AM</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex-none">
+            <button class="btn btn-square btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
+            </button>
+          </div>
+        </div>
+      </div>    
       </div>
     </section>
 <script src="main.js"></script>
