@@ -38,7 +38,9 @@ let addMoneyBtn = getelement('add-money-btn');
 
 // Global Pin
 const pin = 1234;
-
+// transaction data
+const transactionData = [];
+// Add money
 addMoneyBtn.addEventListener("click",(e)=>{
     let amountAdd = parseValue('amountToAdd');
     let nitAmount = parseText('nit-amount');
@@ -46,6 +48,10 @@ addMoneyBtn.addEventListener("click",(e)=>{
     let pinNumber = parseValue('pinNumber');
     e.preventDefault()
     
+    if(amountAdd<=0){
+        alert("Please provide valid amount")
+        return;
+    }
     if(pinNumber!==pin){
         alert("Incorrect Pin")
         return
@@ -57,6 +63,12 @@ addMoneyBtn.addEventListener("click",(e)=>{
     }else{
         alert("Please provide 11 digit account number")
     }
+
+    const data = {
+        name:"Add Money",
+        date: new Date().toLocaleString()
+    }
+    transactionData.push(data)
 })
 
 // CASH OUT BTN
@@ -67,6 +79,10 @@ withdrawBtn.addEventListener('click',(e)=>{
     let cashoutpin = parseValue('cashOut-pin');
     let cashAmount = parseValue('cashAmount');
     let nitAmount = parseText('nit-amount');
+    if(nitAmount<cashAmount){
+        alert("Insufficient Balance")
+        return;
+    }
     if(cashoutpin!==pin){
         alert("Incorrect Pin")
         return
@@ -78,6 +94,13 @@ withdrawBtn.addEventListener('click',(e)=>{
     }else{
         alert("Please provide 11 digit account number")
     }
+
+    const data = {
+        name:"Cash Out",
+        date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data)
+    
 })
 // TRANSFER MONEY BTN
 let sendNow = getelement('sendNow');
@@ -98,6 +121,11 @@ sendNow.addEventListener('click',(e)=>{
     }else{
         alert("Please provide 11 digit account number")
     }
+    const data = {
+        name:"Transfer Money",
+        date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data)
 })
 // GET BONUS BTN
 let getBonus = getelement('getBonus');
@@ -110,6 +138,11 @@ getBonus.addEventListener('click',(e)=>{
         document.getElementById('nit-amount').innerText = total
         alert("Bonus add successfully")
     }
+    const data = {
+        name:"Get Bonus",
+        date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data)
 })
 // pay-Bill-btn click
 let payBill = getelement('pay-Bill-btn');
@@ -131,9 +164,14 @@ payBill.addEventListener('click',(e)=>{
     }else{
         alert("Please provide 11 digit account number")
     }
+    const data = {
+        name:"Pay Bill",
+        date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data)
 })
 
-
+// transaction section
 
 // click
 let clickaddMoney = getelement('clickaddMoney');
@@ -204,4 +242,29 @@ clickTransaction.addEventListener('click',()=>{
     transferSection.setAttribute('class','hidden')
     BonusSection.setAttribute('class','hidden')
     payBillSection.setAttribute('class','hidden')
+
+    const transactionContainer = document.getElementById('transaction-container');
+   transactionContainer.innerHTML = '';
+   transactionData.forEach(item => {
+       const div = document.createElement('div');
+       div.innerHTML = `<div class="navbar bg-base-100 shadow-sm rounded-xl mb-3">
+          <div class="flex-1">
+            <div class="flex gap-4 items-center">
+              <div class="bg-gray-200 p-2 rounded-full">
+                  <img class="" src="./assets/wallet1.png" alt="">
+              </div>
+              <div>
+                <h1 class="font-semibold text-lg">${item.name}</h1>
+                <p>${item.date}</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex-none">
+            <button class="btn btn-square btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
+            </button>
+          </div>
+        </div>`;
+       transactionContainer.appendChild(div);
+   });
 })
